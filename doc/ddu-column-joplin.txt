@@ -65,6 +65,18 @@ expandedIcon	(string)
 			\   },
 			\ })
 <
+                                          *ddu-column-joplin-param-noteIcon*
+noteIcon	(string)
+		The note item icon.
+
+		Default: "*"
+>
+		call ddu#custom#patch_global(#{
+			\   columnParams: #{
+			\   	joplin: #{ noteIcon: "\ueb26" }, " 
+			\   },
+			\ })
+<
 
                                        *ddu-column-joplin-param-checkedIcon*
 checkedIcon	(string)

@@ -10,6 +10,7 @@ type Params = {
   expandedIcon: string;
   checkedIcon: string;
   uncheckedIcon: string;
+  noteIcon: string;
   iconWidth: number;
   indentWidth: number;
 };
@@ -31,24 +32,11 @@ export class Column extends BaseColumn<Params> {
     const params = args.columnParams;
     const widths = await Promise.all(args.items.map(
       async (item) => {
-        const actionData = item?.action as ActionData;
-
-        const isFolder = item?.isTree ?? false;
-
-        const folderIcon = item?.__expanded
-          ? params.expandedIcon
-          : params.collapsedIcon;
-        const noteIcon = actionData.is_todo
-          ? params.checkedIcon
-          : params.uncheckedIcon;
-
-        const icon = isFolder ? folderIcon : noteIcon;
-
         const len = await fn.strwidth(
           args.denops,
           " ".repeat(
             params.indentWidth * item.__level + params.iconWidth,
-          ) + icon + item.word,
+          ) + item.word,
         ) as number;
         return len;
       },
@@ -74,7 +62,7 @@ export class Column extends BaseColumn<Params> {
       : params.collapsedIcon;
     const noteIcon = actionData.is_todo
       ? actionData.todo_completed ? params.checkedIcon : params.uncheckedIcon
-      : " ".repeat(params.iconWidth);
+      : params.noteIcon;
 
     const icon = isFolder ? folderIcon : noteIcon;
 
@@ -89,6 +77,7 @@ export class Column extends BaseColumn<Params> {
       expandedIcon: "-",
       checkedIcon: "X",
       uncheckedIcon: "_",
+      noteIcon: "*",
       iconWidth: 1,
       indentWidth: 2,
     };
