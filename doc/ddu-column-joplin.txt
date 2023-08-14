@@ -70,13 +70,27 @@ expandedIcon	(string)
 checkedIcon	(string)
 		The checked todo item icon.
 
-		Default: "\uf4a7"
+		Default: "_"
+>
+		call ddu#custom#patch_global(#{
+			\   columnParams: #{
+			\   	joplin: #{ checkedIcon: "\uf4a7" }, " 
+			\   },
+			\ })
+<
 
                                      *ddu-column-joplin-param-uncheckedIcon*
 uncheckedIcon	(string)
 		The unchecked todo item icon.
 
-		Default: "\ue640"
+		Default: "X"
+>
+		call ddu#custom#patch_global(#{
+			\   columnParams: #{
+			\   	joplin: #{ uncheckedIcon: "\ue640" }, " 
+			\   },
+			\ })
+<
 
                                          *ddu-column-joplin-param-iconWidth*
 iconWidth	(number)

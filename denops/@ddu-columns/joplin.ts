@@ -87,8 +87,8 @@ export class Column extends BaseColumn<Params> {
     return {
       collapsedIcon: "+",
       expandedIcon: "-",
-      checkedIcon: "\uf4a7",
-      uncheckedIcon: "\ue640",
+      checkedIcon: "X",
+      uncheckedIcon: "_",
       iconWidth: 1,
       indentWidth: 2,
     };
