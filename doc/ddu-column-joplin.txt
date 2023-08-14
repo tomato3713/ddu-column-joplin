@@ -45,12 +45,26 @@ collapsedIcon	(string)
 		The collapsed directory icon.
 
 		Default: "+"
+>
+		call ddu#custom#patch_global(#{
+			\   columnParams: #{
+			\   	joplin: #{ collapsedIcon: "\uea83" }, " 
+			\   },
+			\ })
+<
 
                                       *ddu-column-joplin-param-expandedIcon*
 expandedIcon	(string)
 		The expanded directory icon.
 
 		Default: "-"
+>
+		call ddu#custom#patch_global(#{
+			\   columnParams: #{
+			\   	joplin: #{ expandedIcon: "\ueaf7" }, " 
+			\   },
+			\ })
+<
 
                                        *ddu-column-joplin-param-checkedIcon*
 checkedIcon	(string)
